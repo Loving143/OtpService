@@ -18,7 +18,7 @@ public class Otp {
     private String codeHash;
 
     @Column(name = "type", nullable = false, length = 50)
-    private String type; // e.g. SMS, EMAIL, TOTP
+    private String type; // SMS, EMAIL, TOTP
 
     @Column(name = "expires_at", nullable = false)
     private Instant expiresAt;
@@ -31,8 +31,7 @@ public class Otp {
 
     @Column(name = "created_at", updatable = false, nullable = false)
     private Instant createdAt = Instant.now();
-
-    // --- Getters and Setters ---
+    
     public Long getId() {
         return id;
     }
