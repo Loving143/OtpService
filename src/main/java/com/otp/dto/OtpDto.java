@@ -19,7 +19,7 @@ public class OtpDto {
 		this.type = otp.getType();
 		this.expiresAt = otp.getExpiresAt();
 		this.attempts = otp.getAttempts();
-		this.codeHash = otp.getCodeHash();
+		this.codeHash = otp.getOtp();
 	}
 	public String getUserName() {
 		return userName;

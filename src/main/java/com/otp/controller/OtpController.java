@@ -3,11 +3,13 @@ package com.otp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.otp.dto.OtpDto;
+import com.otp.dto.ValidateOtpRequest;
 import com.otp.entity.Otp;
 import com.otp.service.OtpService;
 
@@ -22,5 +24,10 @@ public class OtpController {
 		Otp otp = otpService.generateOtp(userName);
 		OtpDto otpDto = new OtpDto(otp);
 		return ResponseEntity.ok(otpDto);
+	}
+	
+	@PostMapping("/validate/otp")
+	public boolean validateOtp(String userName , String otp){
+		return otpService.validateOtp(userName , otp);
 	}
 }

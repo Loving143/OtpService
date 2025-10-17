@@ -15,7 +15,7 @@ public class Otp {
     private String userName;
 
     @Column(name = "code_hash", nullable = false, length = 255)
-    private String codeHash;
+    private String otp;
 
     @Column(name = "type", nullable = false, length = 50)
     private String type; // SMS, EMAIL, TOTP
@@ -38,14 +38,6 @@ public class Otp {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCodeHash() {
-        return codeHash;
-    }
-
-    public void setCodeHash(String codeHash) {
-        this.codeHash = codeHash;
     }
 
     public String getType() {
@@ -99,6 +91,14 @@ public class Otp {
 	public Otp() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 }
 
