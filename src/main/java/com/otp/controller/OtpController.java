@@ -27,7 +27,8 @@ public class OtpController {
 	}
 	
 	@PostMapping("/validate/otp")
-	public boolean validateOtp(String userName , String otp){
+	public boolean validateOtp(@RequestParam("userName") String userName , @RequestParam("otp") String otp ){
+		System.out.println("Tis is otp");
 		return otpService.validateOtp(userName , otp);
 	}
 }
