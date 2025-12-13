@@ -3,16 +3,15 @@ spring:
     name: otp-service
 
 server:
-  port: 8042
+  port: ${PORT:8042}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL}
   instance:
     prefer-ip-address: true
-    hostname: 192.168.18.163  # Remove ${} for static IP
-    instance-id: otp-service:8042  # Use proper placeholders
+    instance-id: "${spring.application.name}:${server.port}"
 
 management:
   endpoints:
